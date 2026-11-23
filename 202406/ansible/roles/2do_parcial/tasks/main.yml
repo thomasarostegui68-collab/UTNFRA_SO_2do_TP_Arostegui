@@ -1,0 +1,40 @@
+---
+# tasks file for 2do_parcial
+
+- name: "Creo los directorios del 2do parcial"
+  become: yes
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - /tmp/2do_parcial
+    - /tmp/2do_parcial/alumno
+    - /tmp/2do_parcial/equipo
+
+- name: "Genero datos_alumno.txt desde template"
+  become: yes
+  ansible.builtin.template:
+    src: datos_alumno.txt.j2
+    dest: /tmp/2do_parcial/alumno/datos_alumno.txt
+
+- name: "Genero datos_equipo.txt desde template"
+  become: yes
+  ansible.builtin.template:
+    src: datos_equipo.txt.j2
+    dest: /tmp/2do_parcial/equipo/datos_equipo.txt
+
+- name: "Creo el grupo 2PSupervisores"
+  become: yes
+  ansible.builtin.group:
+    name: 2PSupervisores
+    state: present
+
+- name: "Sudo sin password para 2PSupervisores"
+  become: yes
+  ansible.builtin.copy:
+    content: "%2PSupervisores ALL=(ALL) NOPASSWD:ALL\n"
+    dest: /etc/sudoers.d/2PSupervisores
+    owner: root
+    group: root
+    mode: "0440"
+    validate: /usr/sbin/visudo -cf %s
