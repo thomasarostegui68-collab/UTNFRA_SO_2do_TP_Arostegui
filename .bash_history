@@ -324,3 +324,122 @@ sudo ls -l /etc/sudoers.d/Thomas
 ls /tmp/2do_parcial/
 cd ~/UTNFRA_SO_2do_TP_Arostegui
 history -a
+{ sudo sed -n '4,6p' /home/vagrant/.bash_history; cat ~/.bash_history; } > .bash_history
+head -5 .bash_history
+cp -r ~/UTN-FRA_SO_Examenes/202406 .
+cp -r ~/RTA_Examen_* .
+cat > README.md <<'EOF'
+# UTNFRA_SO_2do_TP_Arostegui
+Thomas Arostegui - División 111
+EOF
+
+git add .
+git commit -m "Entrega 2do TP"
+git push
+sudo nano /usr/local/bin/ArostegiuAltaUser-Groups.sh
+sudo reboot
+ls
+pwd
+sudo apt install git
+sudo apt install wget gpg
+UBUNTU_CODENAME=jammy
+wget -O- "https://keyserver.ubuntu.com/pks/lookup?fingerprint=on&op=get&search=0x6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367" | sudo gpg --dearmour -o /usr/share/keyrings/ansible-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/ansible-archive-keyring.gpg] http://ppa.launchpad.net/ansible/ansible/ubuntu $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/ansible.list
+sudo apt update && sudo apt install ansible
+ansible --version
+# Add Docker's official GPG key:
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+# Add the repository to Apt sources:
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+sudo docker run hello-world
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+4f55086f7dd0: Pull complete
+d5e71e642bf5: Download complete
+Digest: sha256:1e4c05b897a751332ce85c7e9449da2d93514ea2dea6dbb0e2753c9e949b2bfa
+Status: Downloaded newer image for hello-world:latest
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+To generate this message, Docker took the following steps:
+To try something more ambitious, you can run an Ubuntu container with:
+Share images, automate workflows, and more with a free Docker ID:
+For more examples and ideas, visit:
+sudo systemctl status docker
+sudo usermod -a -G docker Thomas
+sudo su - Thomas
+df -h /var/lib/docker /work
+swapon --show
+lsblk
+sudo vgs
+sudo lvs
+df -h /var/lib/docker /work
+swapon --show
+tail -5 /etc/fstab
+getent passwd | tail -6
+getent group | tail -5
+ls ~/RTA_Examen_*
+sudo docker ps
+curl -s localhost:8080 | head -15
+sudo docker images
+cd ~/UTN-FRA_SO_Examenes/202406/docker
+sudo ./run.sh
+sudo docker ps
+curl -s localhost:8080 | head -15
+cat /tmp/2do_parcial/alumno/datos_alumno.txt
+cat /tmp/2do_parcial/equipo/datos_equipo.txt
+sudo cat /etc/sudoers.d/2PSupervisores
+getent group 2PSupervisores
+cd ~/UTN-FRA_SO_Examenes/202406/ansible
+ansible-playbook -i inventory/hosts playbook.yml -l localhost
+ls -R /tmp/2do_parcial
+cat /tmp/2do_parcial/alumno/*
+cat /tmp/2do_parcial/equipo/*
+curl -s localhost:8080 | head -15
+cd ~/UTNFRA_SO_2do_TP_Arostegui
+git status
+git ls-files | head -20
+head -6 .bash_history
+curl -s localhost:8080 | head -15
+cd ~/UTN-FRA_SO_Examenes/202406/_checks
+sudo ./check_A.sh
+sudo ./check_B.sh
+sudo ./check_C.sh
+sudo ./check_D.sh
+cat ~/UTN-FRA_SO_Examenes/202406/_checks/check_B.sh
+sudo ./check_B.sh
+cd ~/UTN-FRA_SO_Examenes/202406/_checks
+sudo ./check_B.sh
+cd ~/UTN-FRA_SO_Examenes/202406/_checks
+./check_B.sh
+./check_B.sh 
+./check_C.sh 
+cat ~/RTA_Examen_20261123/Punto_A.sh
+cat ~/RTA_Examen_20261123/Punto_B.sh
+cat ~/RTA_Examen_20261123/Punto_C.sh
+cat ~/RTA_Examen_20261123/Punto_D.sh
+cd ~/UTN-FRA_SO_Examenes/202406/_checks
+./check_B.sh
+./check_C.sh
+./check_D.sh
+cd ~/UTN-FRA_SO_Examenes/202406/_checks
+./check_C.sh | head -40
+./check_D.sh | head -40
+cd ~/UTN-FRA_SO_Examenes/202406
+./_checks/check_D.sh | head -60
+cd ~/UTNFRA_SO_2do_TP_Arostegui
+history -a

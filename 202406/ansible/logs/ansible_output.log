@@ -45,3 +45,34 @@ core/2.17/reference_appendices/interpreter_discovery.html for more information.
 }
 2026-11-23 20:05:01,443 p=12922 u=Thomas n=ansible | PLAY RECAP *****************************************************************************************
 2026-11-23 20:05:01,443 p=12922 u=Thomas n=ansible | localhost                  : ok=8    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-11-23 20:26:35,195 p=1600 u=Thomas n=ansible | [WARNING]: A duplicate localhost-like entry was found (localhost). First found localhost was
+127.0.0.1
+
+2026-11-23 20:26:35,656 p=1600 u=Thomas n=ansible | PLAY [all] *****************************************************************************************
+2026-11-23 20:26:35,680 p=1600 u=Thomas n=ansible | TASK [Gathering Facts] *****************************************************************************
+2026-11-23 20:26:38,240 p=1600 u=Thomas n=ansible | [WARNING]: Platform linux on host localhost is using the discovered Python interpreter at
+/usr/bin/python3.10, but future installation of another Python interpreter could change the meaning
+of that path. See https://docs.ansible.com/ansible-
+core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-11-23 20:26:38,241 p=1600 u=Thomas n=ansible | ok: [localhost]
+2026-11-23 20:26:38,246 p=1600 u=Thomas n=ansible | TASK [include_role : 2do_parcial] ******************************************************************
+2026-11-23 20:26:38,352 p=1600 u=Thomas n=ansible | included: 2do_parcial for localhost
+2026-11-23 20:26:38,357 p=1600 u=Thomas n=ansible | TASK [2do_parcial : Creo los directorios del 2do parcial] ******************************************
+2026-11-23 20:26:38,637 p=1600 u=Thomas n=ansible | changed: [localhost] => (item=/tmp/2do_parcial)
+2026-11-23 20:26:38,780 p=1600 u=Thomas n=ansible | changed: [localhost] => (item=/tmp/2do_parcial/alumno)
+2026-11-23 20:26:38,925 p=1600 u=Thomas n=ansible | changed: [localhost] => (item=/tmp/2do_parcial/equipo)
+2026-11-23 20:26:38,931 p=1600 u=Thomas n=ansible | TASK [2do_parcial : Genero datos_alumno.txt desde template] ****************************************
+2026-11-23 20:26:39,439 p=1600 u=Thomas n=ansible | changed: [localhost]
+2026-11-23 20:26:39,444 p=1600 u=Thomas n=ansible | TASK [2do_parcial : Genero datos_equipo.txt desde template] ****************************************
+2026-11-23 20:26:39,721 p=1600 u=Thomas n=ansible | changed: [localhost]
+2026-11-23 20:26:39,727 p=1600 u=Thomas n=ansible | TASK [2do_parcial : Creo el grupo 2PSupervisores] **************************************************
+2026-11-23 20:26:39,967 p=1600 u=Thomas n=ansible | ok: [localhost]
+2026-11-23 20:26:39,972 p=1600 u=Thomas n=ansible | TASK [2do_parcial : Sudo sin password para 2PSupervisores] *****************************************
+2026-11-23 20:26:40,297 p=1600 u=Thomas n=ansible | ok: [localhost]
+2026-11-23 20:26:40,307 p=1600 u=Thomas n=ansible | TASK [Otra tarea] **********************************************************************************
+2026-11-23 20:26:40,318 p=1600 u=Thomas n=ansible | ok: [localhost] => {
+    "msg": "Despues de la ejecucion del rol"
+}
+2026-11-23 20:26:40,319 p=1600 u=Thomas n=ansible | PLAY RECAP *****************************************************************************************
+2026-11-23 20:26:40,319 p=1600 u=Thomas n=ansible | localhost                  : ok=8    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
